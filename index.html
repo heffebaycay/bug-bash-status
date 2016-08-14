@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Est-ce que c'est le bug-bash ?</title>
+    <style>
+        body {
+            -webkit-background-size: 100%;
+            background-size: 100%;
+        }
+        h1 {
+            color: #000000;
+            font-weight: 900;
+            font-size: 200px;
+            text-shadow: -2px 2px #dbf2fa;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Non !</h1>
+    <script type="text/javascript">
+        function isBugBash() {
+            return true;
+        }
+
+        function setBackground(fileName) {
+            document.getElementsByTagName('body')[0].style.background = "url(" + fileName + ")";
+        }
+
+        function setTitleText(caption) {
+            document.getElementsByTagName('h1')[0].innerText = caption;
+        }
+
+        if (isBugBash()) {
+            // Not bug bash
+            setBackground('bug.jpg');
+        } else {
+            // Bug bash
+            setBackground('party.jpg');
+        }
+    </script>
+</body>
+</html>
