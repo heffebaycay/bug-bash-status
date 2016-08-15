@@ -5,6 +5,7 @@
     <title>Est-ce que c'est le bug-bash ?</title>
     <style>
         body {
+            background: no-repeat fixed center;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -24,11 +25,39 @@
     <h1>Non !</h1>
     <script type="text/javascript">
         function isBugBash() {
-            return true;
+            var bbStart = Date.UTC(2016, 7, 1);
+            var bbEnd = Date.UTC(2016, 7, 26);
+            var now = Date.now();
+
+            if (now >= bbStart && now <= bbEnd
+                    && !isWeekEnd(now)
+                    && isWithinWorkHours(now)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        function isWithinWorkHours(referenceTimestamp) {
+            var referenceDate = new Date(referenceTimestamp);
+            var start = new Date().setUTCHours(7, 0);
+            var end = new Date().setUTCHours(17, 30);
+            if (referenceDate >= start && referenceDate <= end) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        function isWeekEnd(referenceTimestamp) {
+            var referenceDate = new Date(referenceTimestamp);
+            return referenceDate.getUTCDay() % 6 == 0;
         }
 
         function setBackground(fileName) {
-            document.getElementsByTagName('body')[0].style.background = "url(" + fileName + ")";
+            document.getElementsByTagName('body')[0].style.backgroundImage = "url(" + fileName + ")";
         }
 
         function setTitleText(caption) {
