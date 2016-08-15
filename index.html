@@ -5,8 +5,10 @@
     <title>Est-ce que c'est le bug-bash ?</title>
     <style>
         body {
-            -webkit-background-size: 100%;
-            background-size: 100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
         h1 {
             color: #000000;
@@ -35,7 +37,7 @@
 
         if (isBugBash()) {
             // Not bug bash
-            setBackground('bug.jpg');
+            setBackground('bug-2.jpg');
             setTitleText('Yup :|');
         } else {
             // Bug bash
